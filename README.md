@@ -1,4 +1,4 @@
-![LinkedToEpstein](assets/logo.png)
+![EpsteIn](assets/logo.png)
 
 Search the publicly released Epstein court documents for mentions of your LinkedIn connections.
 
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-python linked_to_epstein.py --contacts /path/to/Connections.csv
+python EpsteIn.py --contacts /path/to/Connections.csv
 ```
 
 ### Options
@@ -47,17 +47,17 @@ python linked_to_epstein.py --contacts /path/to/Connections.csv
 
 Basic usage:
 ```bash
-python linked_to_epstein.py --contacts ~/Downloads/Connections.csv
+python EpsteIn.py --contacts ~/Downloads/Connections.csv
 ```
 
 Custom output file:
 ```bash
-python linked_to_epstein.py --contacts ~/Downloads/Connections.csv --output my_report.html
+python EpsteIn.py --contacts ~/Downloads/Connections.csv --output my_report.html
 ```
 
 Only show contacts with 5+ mentions:
 ```bash
-python linked_to_epstein.py --contacts ~/Downloads/Connections.csv --min-mentions 5
+python EpsteIn.py --contacts ~/Downloads/Connections.csv --min-mentions 5
 ```
 
 ## Reading the Output
