@@ -31,26 +31,26 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-python EpsteIn.py --contacts /path/to/Connections.csv
+python EpsteIn.py --connections /path/to/Connections.csv
 ```
 
 ### Options
 
 | Flag | Description |
 |------|-------------|
-| `--contacts`, `-c` | Path to LinkedIn Connections.csv export (required) |
+| `--connections`, `-c` | Path to LinkedIn Connections.csv export (required) |
 | `--output`, `-o` | Output HTML file path (default: `EpsteIn.html`) |
 
 ### Examples
 
 Basic usage:
 ```bash
-python EpsteIn.py --contacts ~/Downloads/Connections.csv
+python EpsteIn.py --connections ~/Downloads/Connections.csv
 ```
 
 Custom output file:
 ```bash
-python EpsteIn.py --contacts ~/Downloads/Connections.csv --output my_report.html
+python EpsteIn.py --connections ~/Downloads/Connections.csv --output my_report.html
 ```
 
 ## Reading the Output
