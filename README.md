@@ -79,5 +79,5 @@ Contacts are sorted by number of mentions (highest first).
 
 - The search uses exact phrase matching on full names, so "John Smith" won't match documents that only contain "John" or "Smith" separately
 - Common names may produce false positives—review the context excerpts to verify relevance
-- The Epstein files are searched via an API that indexes the publicly released court documents hosted at justice.gov
+- Epstein files indexed by [DugganUSA.com](https://dugganusa.com)
 
