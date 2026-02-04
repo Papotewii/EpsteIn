@@ -39,7 +39,7 @@ python EpsteIn.py --contacts /path/to/Connections.csv
 | Flag | Description |
 |------|-------------|
 | `--contacts`, `-c` | Path to LinkedIn Connections.csv export (required) |
-| `--output`, `-o` | Output HTML file path (default: `epstein_mentions_report.html`) |
+| `--output`, `-o` | Output HTML file path (default: `EpsteIn.html`) |
 | `--min-mentions`, `-m` | Only include contacts with at least N mentions (default: 1) |
 | `--delay`, `-D` | Delay between API requests in seconds (default: 0.2) |
 
@@ -62,7 +62,7 @@ python EpsteIn.py --contacts ~/Downloads/Connections.csv --min-mentions 5
 
 ## Reading the Output
 
-The script generates an HTML report (`epstein_mentions_report.html` by default) that you can open in any web browser.
+The script generates an HTML report (`EpsteIn.html` by default) that you can open in any web browser.
 
 ![A screenshot of the HTML report.](assets/screenshot.png)
 
