@@ -55,6 +55,11 @@ def parse_linkedin_contacts(csv_path):
             first_name = row.get('First Name', '').strip()
             last_name = row.get('Last Name', '').strip()
 
+            # Remove credentials/certifications (everything after the first comma)
+            # e.g., "Goralczyk, Esq., LLM/Cyber, CIPP/US, CIPM" -> "Goralczyk"
+            if ',' in last_name:
+                last_name = last_name.split(',')[0].strip()
+
             if first_name and last_name:
                 full_name = f"{first_name} {last_name}"
                 contacts.append({
