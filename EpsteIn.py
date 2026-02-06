@@ -56,7 +56,6 @@ def parse_linkedin_contacts(csv_path):
             last_name = row.get('Last Name', '').strip()
 
             # Remove credentials/certifications (everything after the first comma)
-            # e.g., "Goralczyk, Esq., LLM/Cyber, CIPP/US, CIPM" -> "Goralczyk"
             if ',' in last_name:
                 last_name = last_name.split(',')[0].strip()
 
@@ -354,31 +353,40 @@ To export your LinkedIn connections:
 
     # Search for each contact
     print("Searching Epstein files API...")
+    print("(Press Ctrl+C to stop and generate a partial report)\n")
     results = []
 
     delay = 0.25
 
-    for i, contact in enumerate(contacts):
-        print(f"  [{i+1}/{len(contacts)}] {contact['full_name']}", end='', flush=True)
+    try:
+        for i, contact in enumerate(contacts):
+            print(f"  [{i+1}/{len(contacts)}] {contact['full_name']}", end='', flush=True)
 
-        search_result, delay = search_epstein_files(contact['full_name'], delay)
-        total_mentions = search_result['total_hits']
+            search_result, delay = search_epstein_files(contact['full_name'], delay)
+            total_mentions = search_result['total_hits']
 
-        print(f" -> {total_mentions} hits")
+            print(f" -> {total_mentions} hits")
 
-        results.append({
-            'name': contact['full_name'],
-            'first_name': contact['first_name'],
-            'last_name': contact['last_name'],
-            'company': contact['company'],
-            'position': contact['position'],
-            'total_mentions': total_mentions,
-            'hits': search_result['hits']
-        })
+            results.append({
+                'name': contact['full_name'],
+                'first_name': contact['first_name'],
+                'last_name': contact['last_name'],
+                'company': contact['company'],
+                'position': contact['position'],
+                'total_mentions': total_mentions,
+                'hits': search_result['hits']
+            })
 
-        # Rate limiting
-        if i < len(contacts) - 1:
-            time.sleep(delay)
+            # Rate limiting
+            if i < len(contacts) - 1:
+                time.sleep(delay)
+
+    except KeyboardInterrupt:
+        print("\n\nSearch interrupted by user (Ctrl+C).")
+        if not results:
+            print("No results collected yet. Exiting without generating report.")
+            sys.exit(0)
+        print(f"Generating partial report with {len(results)} of {len(contacts)} contacts searched...")
 
     # Sort by mentions (descending)
     results.sort(key=lambda x: x['total_mentions'], reverse=True)
@@ -392,7 +400,7 @@ To export your LinkedIn connections:
     print(f"\n{'='*60}")
     print("SUMMARY")
     print(f"{'='*60}")
-    print(f"Total connections searched: {len(contacts)}")
+    print(f"Total connections searched: {len(results)}")
     print(f"Connections with mentions: {len(contacts_with_mentions)}")
 
     if contacts_with_mentions:
