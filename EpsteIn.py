@@ -262,18 +262,22 @@ def generate_html_report(results, output_path):
         if result['hits']:
             for hit in result['hits']:
                 preview = hit.get('content_preview') or (hit.get('content') or '')[:500]
-                file_path = hit.get('file_path', '')
-                if file_path:
-                    file_path = file_path.replace('dataset', 'DataSet')
-                    base_url = PDF_BASE_URL.rstrip('/') if file_path.startswith('/') else PDF_BASE_URL
-                    pdf_url = base_url + urllib.parse.quote(file_path, safe='/')
-                else:
-                    pdf_url = ''
+
+                pdf_url = hit.get('doj_url', '')
+
+                if not pdf_url:
+                    file_path = hit.get('file_path', '')
+                    if file_path:
+                        file_path = file_path.replace('dataset', 'DataSet')
+                        base_url = PDF_BASE_URL.rstrip('/') if file_path.startswith('/') else PDF_BASE_URL
+                        pdf_url = base_url + urllib.parse.quote(file_path, safe='/')
+                    else:
+                        pdf_url = ''
 
                 html_content += f"""
         <div class="hit">
             <div class="hit-preview">{html.escape(preview)}</div>
-            {f'<a class="hit-link" href="{html.escape(pdf_url)}" target="_blank">View PDF: {html.escape(file_path)}</a>' if pdf_url else ''}
+            {f'<a class="hit-link" href="{html.escape(pdf_url)}" target="_blank">View PDF: {html.escape(pdf_url)}</a>' if pdf_url else ''}
         </div>
 """
         else:
