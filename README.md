@@ -36,6 +36,8 @@ pip install -r requirements.txt
 python EpsteIn.py --connections /path/to/Connections.csv
 ```
 
+The API that EpsteIn connects to has recently required an API key to access it. Keys are available for free at https://epstein.dugganusa.com/register.html
+
 ### Options
 
 | Flag | Description |

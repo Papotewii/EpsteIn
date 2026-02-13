@@ -26,6 +26,31 @@ except ImportError:
 
 API_BASE_URL = "https://analytics.dugganusa.com/api/v1/search"
 PDF_BASE_URL = "https://www.justice.gov/epstein/files/"
+API_KEY_PATH = os.path.join(os.getcwd(), ".epstein_api_key")
+
+
+def get_api_key():
+    """Load API key from disk, or prompt the user for one."""
+    if os.path.exists(API_KEY_PATH):
+        with open(API_KEY_PATH, 'r') as f:
+            key = f.read().strip()
+            if key:
+                return key
+
+    print("An API key is required to search the Epstein files.")
+    print("To obtain one, visit: https://epstein.dugganusa.com/register.html")
+    print()
+    api_key = input("Enter your API key: ").strip()
+
+    if not api_key:
+        print("Error: No API key provided.", file=sys.stderr)
+        sys.exit(1)
+
+    with open(API_KEY_PATH, 'w') as f:
+        f.write(api_key)
+
+    print(f"API key saved to {API_KEY_PATH}\n")
+    return api_key
 
 
 def parse_linkedin_contacts(csv_path):
@@ -72,7 +97,7 @@ def parse_linkedin_contacts(csv_path):
     return contacts
 
 
-def search_epstein_files(name, delay):
+def search_epstein_files(name, delay, api_key):
     """
     Search the Epstein files API for a name.
     Returns (result_dict, delay) where delay may be increased on 429 responses.
@@ -81,10 +106,11 @@ def search_epstein_files(name, delay):
     quoted_name = f'"{name}"'
     encoded_name = urllib.parse.quote(quoted_name)
     url = f"{API_BASE_URL}?q={encoded_name}&indexes=epstein_files"
+    headers = {"Authorization": f"Bearer {api_key}"}
 
     while True:
         try:
-            response = requests.get(url, timeout=30)
+            response = requests.get(url, headers=headers, timeout=30)
 
             if response.status_code == 429:
                 retry_after = response.headers.get('Retry-After')
@@ -360,6 +386,9 @@ To export your LinkedIn connections:
         print("No connections found in CSV. Check the file format.", file=sys.stderr)
         sys.exit(1)
 
+    # Get API key (prompts user if not stored)
+    api_key = get_api_key()
+
     # Search for each contact
     print("Searching Epstein files API...")
     print("(Press Ctrl+C to stop and generate a partial report)\n")
@@ -371,7 +400,7 @@ To export your LinkedIn connections:
         for i, contact in enumerate(contacts):
             print(f"  [{i+1}/{len(contacts)}] {contact['full_name']}", end='', flush=True)
 
-            search_result, delay = search_epstein_files(contact['full_name'], delay)
+            search_result, delay = search_epstein_files(contact['full_name'], delay, api_key)
             total_mentions = search_result['total_hits']
 
             print(f" -> {total_mentions} hits")
